@@ -50,7 +50,7 @@ const showCharacters = (characters) =>{
     else{
         main.innerHTML=''
         characters.forEach(character => {
-            const {name, status,origin,location,image,episode} = character
+            const {name, status,species,gender,type,image,episode} = character
             console.log(episode)
                                     
             const divCharacter = document.createElement('div')
@@ -59,20 +59,33 @@ const showCharacters = (characters) =>{
             `
             <img src="${image}" alt = "" >
             <div class"character-info">
+            
                 <h3> ${name} </h3>
-                <h3> Status: ${status} </h3>
+                <h3> ${species} - ${gender} </h3>
+                <h3> ${type} </h3>
                 
-                       
+                
             </div>
             `
-
-            main.appendChild(divCharacter)
+            
+            main.appendChild(divCharacter) //<span class=${getclassByStatus(status)}>${status}</span>
         })
         
         
     }
 
 }
+
+
+/* const getclassByStatus = (status) => {
+    if (status === "Dead"){
+        return "red"
+    }else if(status === 'unknown'){
+        return "orange"
+    } else{
+        return "green"
+    }
+} */
 
 
 
